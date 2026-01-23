@@ -13,6 +13,8 @@ export function SolanaWallet({ mnemonic }: SolanaWalletProps) {
     const [publicKeys, setPublicKeys] = useState<PublicKey[]>([]);
 
     const createWallet = async () => {
+        if (!mnemonic) return;
+
         const seed = await mnemonicToSeed(mnemonic);
 
         const path = `m/44'/501'/${currentIndex}'/0'`;
@@ -22,7 +24,6 @@ export function SolanaWallet({ mnemonic }: SolanaWalletProps) {
         const secret = nacl.sign.keyPair.fromSeed(derivedSeed).secretKey;
         const keypair = Keypair.fromSecretKey(secret);
 
-        setCurrentIndex(currentIndex + 1);
         setPublicKeys(prev => [...prev, keypair.publicKey]);
         setCurrentIndex(prev => prev + 1);
     }

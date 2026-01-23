@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { MnemonicGenerator } from './components/MnemonicGenerator'
 import { SolanaWallet } from './components/solanaWallet'
+import { RestoreWallet } from './components/RestoreWallet';
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
       <div style={{ padding: "20px" }}>
         <h1>Solana Wallet</h1>
         <MnemonicGenerator mnemonic={mnemonic} setMnemonic={setMnemonic} />
-        <SolanaWallet mnemonic={mnemonic} />
+        <RestoreWallet setMnemonic={setMnemonic} />
+        <SolanaWallet key={mnemonic} mnemonic={mnemonic} />
       </div >
     </>
   )

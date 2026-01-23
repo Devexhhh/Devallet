@@ -1,22 +1,19 @@
 import { useState } from 'react'
 import './App.css'
-import { generateMnemonic } from 'bip39';
+import { MnemonicGenerator } from './components/MnemonicGenerator'
+import { SolanaWallet } from './components/solanaWallet'
+
 
 function App() {
-
-  const [mnemonic, setMnemonic] = useState("");
-
-  const createMnemonic = async () => {
-    const mn = await generateMnemonic();
-    setMnemonic(mn);
-  }
+  const [mnemonic, setMnemonic] = useState<string>("");
 
   return (
     <>
-      <button onClick={createMnemonic} disabled={!!mnemonic}>Create Seed Phrase</button>
-      {mnemonic.split(" ").map((word, i) => (
-        <span key={i}>{word} </span>
-      ))}
+      <div style={{ padding: "20px" }}>
+        <h1>Solana Wallet</h1>
+        <MnemonicGenerator mnemonic={mnemonic} setMnemonic={setMnemonic} />
+        <SolanaWallet mnemonic={mnemonic} />
+      </div >
     </>
   )
 }

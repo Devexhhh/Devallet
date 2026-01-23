@@ -18,7 +18,7 @@ export const MnemonicGenerator = ({ mnemonic, setMnemonic }: MnemonicGeneratorPr
                 <>
                     <p>
                         {mnemonic.split(" ").map((word, i) => (
-                            <span key={i}>{word}</span>
+                            <span key={i}>{word} </span>
                         ))}
                     </p>
                     <p>⚠️ Never share your seed phrase.</p>

@@ -13,8 +13,10 @@ function App() {
 
   return (
     <>
-      <button onClick={createMnemonic}>Create Seed Phrase</button>
-      <h2>{mnemonic}</h2>
+      <button onClick={createMnemonic} disabled={!!mnemonic}>Create Seed Phrase</button>
+      {mnemonic.split(" ").map((word, i) => (
+        <span key={i}>{word} </span>
+      ))}
     </>
   )
 }

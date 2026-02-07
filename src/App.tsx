@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { MnemonicGenerator } from './components/MnemonicGenerator'
-import { SolanaWallet } from './components/solanaWallet'
+import { SolanaWallet } from './components/SolanaWallet'
 import { RestoreWallet } from './components/RestoreWallet';
 
 
